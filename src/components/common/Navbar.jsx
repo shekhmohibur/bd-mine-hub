@@ -1,20 +1,15 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  Menu,
-  X,
-  User,
-  ChevronDown,
-  LogOut,
-} from "lucide-react";
+import { Menu, X, User, ChevronDown, LogOut } from "lucide-react";
 
 import { navLinks, userLinks } from "@/data/navbarData";
 import { useAuth } from "@/hooks/useAuth";
-
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 export default function Navbar() {
   const location = useLocation();
-
+  const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,40 +24,27 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
 
-    return () =>
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     setMobileOpen(false);
     setDropdownOpen(false);
   }, [location.pathname]);
-  
+
   useEffect(() => {
-  const handleClickOutside = (event) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target)
-    ) {
-      setDropdownOpen(false);
-    }
-  };
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
 
-  document.addEventListener(
-    "mousedown",
-    handleClickOutside
-  );
+    document.addEventListener("mousedown", handleClickOutside);
 
-  return () => {
-    document.removeEventListener(
-      "mousedown",
-      handleClickOutside
-    );
-  };
-}, []);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <>
       <header
@@ -72,19 +54,16 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-350 items-center justify-between px-4 lg:px-8">
           {/* Logo */}
-          <Link
-            to="/"
-            className="flex items-center gap-2"
-          >
-            <span className="text-xl font-black text-emerald-400">
-              BD
-            </span>
+          <Link to="/" className="group flex items-center gap-3">
+            <div>
+              <h2 className="font-bold tracking-wide">
+                <span className="text-emerald-400">BD</span> MINE HUB
+              </h2>
 
-            <span className="font-bold tracking-wide text-white">
-              MINE HUB
-            </span>
+              <p className="text-[10px] text-zinc-500">Minecraft Network</p>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -103,7 +82,7 @@ export default function Navbar() {
               >
                 {({ isActive }) => (
                   <>
-                    {item.name}
+                    {t(`navbar.${item.key}`)}
 
                     {isActive && (
                       <motion.div
@@ -116,9 +95,10 @@ export default function Navbar() {
               </NavLink>
             ))}
           </nav>
-
           {/* Desktop Right */}
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-5 lg:flex">
+            <LanguageSwitcher />
+
             {isLoading ? (
               <div className="h-10 w-24 animate-pulse rounded-lg bg-zinc-800" />
             ) : !user ? (
@@ -127,24 +107,20 @@ export default function Navbar() {
                   to="/login"
                   className="rounded-lg border border-sky-500 px-5 py-2 text-sm font-medium text-white transition hover:bg-sky-500/10"
                 >
-                  Login
+                  {t("auth.login")}
                 </Link>
 
                 <Link
                   to="/register"
                   className="rounded-lg bg-emerald-400 px-5 py-2 text-sm font-semibold text-black transition hover:bg-emerald-300"
                 >
-                  Sign Up
+                  {t("auth.signup")}
                 </Link>
               </>
             ) : (
-              <div className="relative">
+              <div className="relative" ref={dropdownRef}>
                 <button
-                  onClick={() =>
-                    setDropdownOpen(
-                      !dropdownOpen
-                    )
-                  }
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
                   className="flex items-center gap-2"
                 >
                   {user.avatar ? (
@@ -162,13 +138,10 @@ export default function Navbar() {
                   <ChevronDown
                     size={16}
                     className={`transition-transform ${
-                      dropdownOpen
-                        ? "rotate-180"
-                        : ""
+                      dropdownOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
-
                 <AnimatePresence>
                   {dropdownOpen && (
                     <motion.div
@@ -187,9 +160,7 @@ export default function Navbar() {
                       className="absolute right-0 top-14 w-64 rounded-2xl border border-white/10 bg-[#111111] p-2 shadow-2xl"
                     >
                       <div className="border-b border-white/10 p-3">
-                        <h4 className="font-semibold">
-                          {user.username}
-                        </h4>
+                        <h4 className="font-semibold">{user.username}</h4>
 
                         {user.role && (
                           <p className="text-xs text-emerald-400">
@@ -199,8 +170,7 @@ export default function Navbar() {
                       </div>
 
                       {userLinks.map((item) => {
-                        const Icon =
-                          item.icon;
+                        const Icon = item.icon;
 
                         return (
                           <NavLink
@@ -209,14 +179,14 @@ export default function Navbar() {
                             className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm text-zinc-300 transition hover:bg-zinc-800"
                           >
                             <Icon size={16} />
-                            {item.name}
+                            {t(`navbar.${item.key}`)}
                           </NavLink>
                         );
                       })}
 
                       <button className="mt-1 flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-red-400 hover:bg-red-500/10">
                         <LogOut size={16} />
-                        Logout
+                        {t("auth.logout")}
                       </button>
                     </motion.div>
                   )}
@@ -226,12 +196,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() =>
-              setMobileOpen(true)
-            }
-            className="lg:hidden"
-          >
+          <button onClick={() => setMobileOpen(true)} className="lg:hidden">
             <Menu size={26} />
           </button>
         </div>
@@ -246,9 +211,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() =>
-                setMobileOpen(false)
-              }
+              onClick={() => setMobileOpen(false)}
               className="fixed inset-0 z-60 bg-black/70 backdrop-blur-sm"
             />
 
@@ -262,23 +225,23 @@ export default function Navbar() {
                 damping: 25,
                 stiffness: 220,
               }}
-              className="fixed right-0 top-0 z-70 h-screen w-[85%] max-w-sm border-l border-white/10 bg-[#0B0B0B]"
+              className="fixed right-0 top-0 z-70 flex flex-col h-screen w-[85%] max-w-sm border-l border-white/10 bg-[#0B0B0B]"
             >
-              <div className="flex h-16 items-center justify-between border-b border-white/10 px-5">
-                <h2 className="font-bold">
-                  BD MINE HUB
-                </h2>
+              <div className="border-b border-white/10 px-5 py-5">
+                <div className="mb-4 flex items-center justify-between">
+                  <h2 className="text-lg font-bold">
+                    <span className="text-emerald-400">BD</span> MINE HUB
+                  </h2>
 
-                <button
-                  onClick={() =>
-                    setMobileOpen(false)
-                  }
-                >
-                  <X />
-                </button>
+                  <button onClick={() => setMobileOpen(false)}>
+                    <X />
+                  </button>
+                </div>
+
+                <LanguageSwitcher />
               </div>
 
-              <div className="flex h-[calc(100%-64px)] flex-col">
+              <div className="flex min-h-0 flex-1 flex-col">
                 {/* User Section */}
                 <div className="border-b border-white/10 p-5">
                   {user ? (
@@ -296,9 +259,7 @@ export default function Navbar() {
                       )}
 
                       <div>
-                        <h4 className="font-semibold">
-                          {user.username}
-                        </h4>
+                        <h4 className="font-semibold">{user.username}</h4>
 
                         {user.role && (
                           <p className="text-xs text-emerald-400">
@@ -313,33 +274,33 @@ export default function Navbar() {
                         to="/login"
                         className="rounded-xl border border-sky-500 py-3 text-center"
                       >
-                        Login
+                        {t("auth.login")}
                       </Link>
 
                       <Link
                         to="/register"
                         className="rounded-xl bg-emerald-400 py-3 text-center font-semibold text-black"
                       >
-                        Sign Up
+                        {t("auth.signup")}
                       </Link>
                     </div>
                   )}
                 </div>
 
                 {/* Navigation */}
-                <div className="flex-1 overflow-y-auto p-4">
+                <div className="min-h-0 flex-1 overflow-y-auto p-4">
                   <p className="mb-3 px-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">
-                    Navigation
+                    {t("common.navigation")}
                   </p>
 
                   {navLinks.map((item) => {
-                    const Icon =
-                      item.icon;
+                    const Icon = item.icon;
 
                     return (
                       <NavLink
                         key={item.path}
                         to={item.path}
+                        onClick={() => setMobileOpen(false)}
                         className={({ isActive }) =>
                           `mb-1 flex items-center gap-3 rounded-xl px-4 py-3 transition ${
                             isActive
@@ -349,7 +310,7 @@ export default function Navbar() {
                         }
                       >
                         <Icon size={18} />
-                        {item.name}
+                        {t(`navbar.${item.key}`)}
                       </NavLink>
                     );
                   })}
@@ -357,37 +318,31 @@ export default function Navbar() {
                   {user && (
                     <>
                       <p className="mb-3 mt-6 px-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">
-                        Account
+                        {t("common.account")}
                       </p>
 
-                      {userLinks.map(
-                        (item) => {
-                          const Icon =
-                            item.icon;
+                      {userLinks.map((item) => {
+                        const Icon = item.icon;
 
-                          return (
-                            <NavLink
-                              key={item.path}
-                              to={item.path}
-                              className="mb-1 flex items-center gap-3 rounded-xl px-4 py-3 text-zinc-300 transition hover:bg-zinc-900"
-                            >
-                              <Icon
-                                size={18}
-                              />
-                              {item.name}
-                            </NavLink>
-                          );
-                        }
-                      )}
-
-                      <button className="mt-2 flex w-full items-center gap-3 rounded-xl px-4 py-3 text-red-400 hover:bg-red-500/10">
-                        <LogOut
-                          size={18}
-                        />
-                        Logout
-                      </button>
+                        return (
+                          <NavLink
+                            key={item.path}
+                            to={item.path}
+                            className="mb-1 flex items-center gap-3 rounded-xl px-4 py-3 text-zinc-300 transition hover:bg-zinc-900"
+                          >
+                            <Icon size={18} />
+                            {t(`navbar.${item.key}`)}
+                          </NavLink>
+                        );
+                      })}
                     </>
                   )}
+                </div>
+                <div className="border-t border-white/10 p-4">
+                  <button className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-red-400 hover:bg-red-500/10">
+                    <LogOut size={18} />
+                    {t("auth.logout")}
+                  </button>
                 </div>
               </div>
             </motion.div>

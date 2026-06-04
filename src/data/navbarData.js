@@ -13,27 +13,27 @@ import {
 
 export const navLinks = [
   {
-    name: "Home",
+    key: "home",
     path: "/",
     icon: Home,
   },
   {
-    name: "Game Modes",
+    key: "gamemodes",
     path: "/gamemodes",
     icon: Swords,
   },
   {
-    name: "Vote",
+    key: "vote",
     path: "/vote",
     icon: CheckCheck,
   },
   {
-    name: "Store",
+    key: "store",
     path: "/store",
     icon: ShoppingBag,
   },
   {
-    name: "Community",
+    key: "community",
     path: "/community",
     icon: Users,
   },
@@ -41,27 +41,27 @@ export const navLinks = [
 
 export const userLinks = [
   {
-    name: "Dashboard",
+    key: "dashboard",
     path: "/dashboard",
     icon: Shield,
   },
   {
-    name: "Profile",
+    key: "profile",
     path: "/profile",
     icon: User,
   },
   {
-    name: "Vote Rewards",
+    key: "voteRewards",
     path: "/vote-rewards",
     icon: Trophy,
   },
   {
-    name: "Support",
+    key: "support",
     path: "/support",
     icon: Ticket,
   },
   {
-    name: "Settings",
+    key: "settings",
     path: "/settings",
     icon: Settings,
   },

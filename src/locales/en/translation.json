@@ -1,0 +1,33 @@
+{
+  "navbar": {
+    "home": "Home",
+    "gamemodes": "Game Modes",
+    "vote": "Vote",
+    "store": "Store",
+    "community": "Community",
+
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "voteRewards": "Vote Rewards",
+    "support": "Support",
+    "settings": "Settings"
+  },
+
+  "hero": {
+    "titleHalf": "PLAY. BUILD.",
+    "titleHalf1": "SURVIVE.",
+    "description": "Join Bangladesh's Minecraft Survival server with custom gameplay, events, rewards, and a growing community.",
+    "join": "Join Server",
+    "serverAddress": "Server Address"
+  },
+   "auth": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "logout": "Logout"
+  },
+
+  "common": {
+    "navigation": "Navigation",
+    "account": "Account"
+  }
+}
