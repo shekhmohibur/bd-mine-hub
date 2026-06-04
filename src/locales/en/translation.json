@@ -29,5 +29,54 @@
   "common": {
     "navigation": "Navigation",
     "account": "Account"
+  },
+  "network": {
+    "status": "Network Status",
+    "live": "LIVE",
+    "playersOnline": "Players Online Now",
+    "topVoters": "Top Voters",
+    "viewAll": "View All",
+    "votes" : "Votes"
+  },
+  "gamemodes": {
+    "tag": "YOUR JOURNEY STARTS HERE",
+    "title": "Featured Game Modes",
+    "description": "Each realm is custom-coded for the best experience on BD MINE HUB.",
+
+    "survival": {
+      "title": "Survival",
+      "badge": "Active Economy",
+      "description": "Build, trade, and survive in our vast custom-generated world with land claims and jobs."
+    },
+
+    "bedwars": {
+      "title": "BedWars",
+      "badge": "Competitive",
+      "description": "Protect your bed and eliminate opponents in this high-octane team-based strategy mode."
+    },
+
+    "pvp": {
+      "title": "PvP Arena",
+      "badge": "Ranks Included",
+      "description": "Test your skills in duels or free-for-all battles with custom kits and leaderboards."
+    },
+
+    "enterRealm": "Enter Realm"
+  },
+  "community": {
+    "memberName": "Sabbir_Ahmed",
+    "title": "Join our Discord Community",
+    "description": "Connect with thousands of players, participate in events, and get instant support from our dedicated staff team.",
+    "joinDiscord": "Join Discord",
+    "supportCenter": "Support Center",
+    "memberOfMonth": "Member of the Month",
+    "testimonial": "The best community and lowest ping in the region. Highly recommended for competitive survival!"
+  },
+  "footer": {
+    "disclaimer": "Not an official Minecraft product.",
+    "discord": "Discord",
+    "facebook": "Facebook",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy"
   }
 }
