@@ -54,11 +54,11 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-350 items-center justify-between px-4 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-350 items-center justify-between px-4">
           {/* Logo */}
           <Link to="/" className="group flex items-center gap-3">
             <div>
-              <h2 className="font-bold tracking-wide">
+              <h2 className="font-bold tracking-wide text-2xl">
                 <span className="text-emerald-400">BD</span> MINE HUB
               </h2>
 

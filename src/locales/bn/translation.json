@@ -20,7 +20,7 @@
     "join": "সার্ভারে যোগ দিন",
     "serverAddress": "সার্ভার এড্রেস"
   },
-   "auth": {
+  "auth": {
     "login": "লগইন",
     "signup": "রেজিস্টার",
     "logout": "লগআউট"
@@ -36,7 +36,7 @@
     "playersOnline": "বর্তমানে অনলাইনে প্লেয়ার",
     "topVoters": "সেরা ভোটাররা",
     "viewAll": "সব দেখুন",
-    "votes" : "ভোটস"
+    "votes": "ভোটস"
   },
   "gamemodes": {
     "tag": "আপনার যাত্রা এখানেই শুরু",
@@ -78,8 +78,60 @@
     "facebook": "ফেসবুক",
     "terms": "সেবার শর্তাবলী",
     "privacy": "গোপনীয়তা নীতি"
+  },
+  "vote": {
+    "title": "সার্ভারকে সমর্থন করুন এবং পুরস্কার অর্জন করুন",
+    "description": "আমাদের পার্টনার ভোট সাইটগুলোতে ভোট দিয়ে BD MINE HUB কে বড় হতে সাহায্য করুন। প্রতিটি ভোট আপনাকে Vote Key এবং বিশেষ পুরস্কার প্রদান করবে।",
+    "sites": {
+      "minecraftmp": {
+        "name": "Minecraft-MP",
+        "description": "ভোট দিন এবং একটি Vote Key অর্জন করুন।"
+      },
+      "planetminecraft": {
+        "name": "Planet Minecraft",
+        "description": "BD Mine Hub কে সমর্থন করুন এবং পুরস্কার পান।"
+      },
+      "mcservers": {
+        "name": "MC-Servers",
+        "description": "সার্ভারের র‍্যাঙ্ক বাড়াতে সাহায্য করুন এবং Vote Key পান।"
+      },
+      "topg": {
+        "name": "TopG",
+        "description": "প্রতিদিন ভোট দিয়ে আরও ভালো পুরস্কার অর্জন করুন।"
+      },
+      "minecraftlist": {
+        "name": "Minecraft List",
+        "description": "সার্ভারকে সমর্থন করুন এবং মূল্যবান পুরস্কার সংগ্রহ করুন।"
+      },
+      "serverpact": {
+        "name": "ServerPact",
+        "description": "নিয়মিত ভোট দিয়ে আরও বেশি Vote Key সংগ্রহ করুন।"
+      }
+    },
+    "voteNow": "ভোট দিন",
+    "cooldown": "কুলডাউন",
+
+    "activeRewards": "রিওয়ার্ড পাওয়ার সম্ভাবনা",
+
+    "serverGoal": "মাসিক ভোট লক্ষ্য",
+
+    "topVoters": "সেরা ভোটার",
+
+    "leaderboard": "সম্পূর্ণ লিডারবোর্ড",
+
+    "guide": {
+      "step1": "১. যেকোনো ভোট সাইটে ভোট দিন",
+      "step2": "২. একটি Vote Key গ্রহণ করুন",
+      "step3": "৩. Voting Machine ব্যবহার করুন",
+      "step4": "৪. র‍্যান্ডম পুরস্কার সংগ্রহ করুন"
+    },
+
+    "rarities": {
+      "common": "কমন",
+      "uncommon": "আনকমন",
+      "epic": "এপিক",
+      "mythic": "মিথিক",
+      "legendary": "লিজেন্ডারি"
+    }
   }
 }
-
-  
-

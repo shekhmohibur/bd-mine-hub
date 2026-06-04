@@ -20,7 +20,7 @@
     "join": "Join Server",
     "serverAddress": "Server Address"
   },
-   "auth": {
+  "auth": {
     "login": "Login",
     "signup": "Sign Up",
     "logout": "Logout"
@@ -36,7 +36,7 @@
     "playersOnline": "Players Online Now",
     "topVoters": "Top Voters",
     "viewAll": "View All",
-    "votes" : "Votes"
+    "votes": "Votes"
   },
   "gamemodes": {
     "tag": "YOUR JOURNEY STARTS HERE",
@@ -78,5 +78,61 @@
     "facebook": "Facebook",
     "terms": "Terms of Service",
     "privacy": "Privacy Policy"
+  },
+  "vote": {
+    "title": "Support the Server & Earn Rewards",
+    "description": "Cast your vote on our partner sites to help BD MINE HUB grow. Each vote grants exclusive rewards and Vote Keys.",
+    "sites": {
+      "minecraftmp": {
+        "name": "Minecraft-MP",
+        "description": "Vote and receive a Vote Key to unlock rewards."
+      },
+      "planetminecraft": {
+        "name": "Planet Minecraft",
+        "description": "Support BD Mine Hub and earn exclusive rewards."
+      },
+      "mcservers": {
+        "name": "MC-Servers",
+        "description": "Help us rank higher and claim your Vote Key."
+      },
+      "topg": {
+        "name": "TopG",
+        "description": "Vote daily and unlock better rewards."
+      },
+      "minecraftlist": {
+        "name": "Minecraft List",
+        "description": "Support the server and earn valuable rewards."
+      },
+      "serverpact": {
+        "name": "ServerPact",
+        "description": "Vote regularly to collect more Vote Keys."
+      }
+    },
+
+    "voteNow": "Vote Now",
+    "cooldown": "Cooldown",
+
+    "activeRewards": "Vote Reward Chances",
+
+    "serverGoal": "Server Vote Goal",
+
+    "topVoters": "Top Voters",
+
+    "leaderboard": "View Full Leaderboard",
+
+    "guide": {
+      "step1": "1. Vote on any partner site",
+      "step2": "2. Receive a Vote Key",
+      "step3": "3. Use the Voting Machine",
+      "step4": "4. Claim random rewards"
+    },
+
+    "rarities": {
+      "common": "Common",
+      "uncommon": "Uncommon",
+      "epic": "Epic",
+      "mythic": "Mythic",
+      "legendary": "Legendary"
+    }
   }
 }

@@ -3,13 +3,12 @@ import { useTranslation } from "react-i18next";
 
 import GameModeCard from "@/components/shared/GameModeCard";
 import { gameModes } from "@/data/gameModes";
-console.log(gameModes);
 export default function FeaturedGameModes() {
   const { t } = useTranslation();
 
   return (
     <section className="relative overflow-hidden py-24">
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.03)_1px,transparent_1px)] bg-size-[50px_50px]" />
 
       <div className="relative z-10 mx-auto max-w-350 px-4">
         <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
@@ -27,7 +26,7 @@ export default function FeaturedGameModes() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {gameModes.map((mode, index) => ( 
+          {gameModes.map((mode, index) => (
             <motion.div
               key={mode.id}
               initial={{
@@ -45,15 +44,15 @@ export default function FeaturedGameModes() {
                 delay: index * 0.15,
               }}
             >
-<GameModeCard
-  title={t(`gamemodes.${mode.key}.title`)}
-  description={t(`gamemodes.${mode.key}.description`)}
-  badge={t(`gamemodes.${mode.key}.badge`)}
-  image={mode.image}
-  href={mode.href}
-  badgeIcon={mode.badgeIcon}
-  badgeColor={mode.badgeColor}
-/>
+              <GameModeCard
+                title={t(`gamemodes.${mode.key}.title`)}
+                description={t(`gamemodes.${mode.key}.description`)}
+                badge={t(`gamemodes.${mode.key}.badge`)}
+                image={mode.image}
+                href={mode.href}
+                badgeIcon={mode.badgeIcon}
+                badgeColor={mode.badgeColor}
+              />
             </motion.div>
           ))}
         </div>

@@ -8,12 +8,12 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-white/10 bg-[#0B0B0B]">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto flex max-w-350 flex-col gap-6 px-4 py-8 md:flex-row md:items-center md:justify-between">
         {/* Left */}
         <div>
           <Link
             to="/"
-            className="text-2xl font-black text-emerald-400"
+            className="text-2xl font-bold text-emerald-400"
           >
             BD <span className="text-white">MINE HUB</span> 
           </Link>

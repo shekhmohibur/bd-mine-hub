@@ -5,8 +5,8 @@ export const useNetworkStats = () => {
     queryKey: ["network-stats"],
     queryFn: async () => {
       return {
-        onlinePlayers: 1402,
-        maxPlayers: 5000,
+        onlinePlayers: 1,
+        maxPlayers: 100,
       };
     },
   });
