@@ -10,8 +10,6 @@ import {
 import { Link, NavLink } from "react-router";
 import { useTranslation } from "react-i18next";
 
-import DashboardUserCard from "./DashboardUserCard";
-
 import useLogout from "@/hooks/useLogout";
 import { getDashboardLinks } from "@/data/dashboardLinks";
 import useProfile from "@/hooks/useProfile";
@@ -54,7 +52,7 @@ export default function DashboardSidebar({
         }
       `}
     >
-      <div className="flex h-full overflow-auto flex-col p-4">
+      <div className="flex h-full overflow-auto scrollbar-none flex-col p-4">
         {/* Collapse */}
         {!mobile && (
           <button
@@ -88,11 +86,6 @@ export default function DashboardSidebar({
             </p>
           </Link>
         )}
-
-        {/* Player Card */}
-        <DashboardUserCard
-          collapsed={collapsed}
-        />
 
         {/* Navigation */}
         <div className="mt-6 flex-1">
