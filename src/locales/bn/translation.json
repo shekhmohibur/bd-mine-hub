@@ -20,7 +20,7 @@
     "join": "সার্ভারে যোগ দিন",
     "serverAddress": "সার্ভার এড্রেস"
   },
-  "auth": {
+  "authFrontend": {
     "login": "লগইন",
     "signup": "রেজিস্টার",
     "logout": "লগআউট"
@@ -133,5 +133,79 @@
       "mythic": "মিথিক",
       "legendary": "লিজেন্ডারি"
     }
-  }
+  },
+  "auth": {
+    "welcome": "স্বাগতম",
+    "subtitle": "BD Mine Hub-এ আপনার যাত্রা চালিয়ে যেতে লগইন করুন।",
+
+    "email": "ইমেইল ঠিকানা",
+    "password": "পাসওয়ার্ড",
+
+    "emailPlaceholder": "আপনার ইমেইল লিখুন",
+    "passwordPlaceholder": "আপনার পাসওয়ার্ড লিখুন",
+
+    "forgotPassword": "পাসওয়ার্ড ভুলে গেছেন?",
+    "login": "লগইন করুন",
+    "signup": "অ্যাকাউন্ট তৈরি করুন",
+    "google": "গুগল দিয়ে চালিয়ে যান",
+    "resetDescription": "আপনার ইমেইল ঠিকানা লিখুন এবং আমরা আপনাকে একটি পাসওয়ার্ড রিসেট লিঙ্ক পাঠাব।",
+    "dontHaveAccount": "অ্যাকাউন্ট নেই?",
+    "alreadyHaveAccount": "আগে থেকেই অ্যাকাউন্ট আছে?",
+    "minecraftUsername": "মাইনক্রাফ্ট ইউজারনেম",
+    "confirmPassword": "পাসওয়ার্ড নিশ্চিত করুন",
+    "createAccount": "অ্যাকাউন্ট তৈরি করুন",
+    "sendReset": "রিসেট লিঙ্ক পাঠান"
+  },
+  "profile": {
+    "title": "প্রোফাইল",
+    "player": "খেলোয়াড়",
+    "accountInfo": "অ্যাকাউন্ট তথ্য",
+    "email": "ইমেইল",
+    "role": "ভূমিকা",
+    "joined": "যোগদানের তারিখ",
+    "totalVotes": "মোট ভোট",
+    "voteKeys": "ভোট কী",
+    "description": "আপনার BD Mine Hub অ্যাকাউন্ট পরিচালনা করুন",
+    "rank": "র‍্যাঙ্ক"
+  },
+  "dashboard": {
+    "home": "হোমপেজে যান",
+    "dashboard": "ড্যাশবোর্ড",
+    "profile": "প্রোফাইল",
+    "voteHistory": "ভোট ইতিহাস",
+    "settings": "সেটিংস",
+    "support": "সাপোর্ট",
+    "logout": "লগআউট",
+    "title": "ড্যাশবোর্ড",
+    "subtitle": "আপনার BD Mine Hub অ্যাকাউন্টের সারসংক্ষেপ",
+    "totalVotes": "মোট ভোট",
+    "voteKeys": "ভোট কী",
+    "rank": "র‍্যাঙ্ক",
+    "recentActivity": "সাম্প্রতিক কার্যক্রম"
+  },
+  "voteHistory": {
+  "title": "ভোট হিস্টোরি",
+  "description": "আপনার রিসেন্ট ভোট এবং পুরস্কার দেখুন",
+  "recentVotes": "রিসেন্ট ভোট"
+},
+"settings": {
+  "title": "সেটিংস",
+  "description": "আপনার অ্যাকাউন্ট পছন্দসমূহ পরিচালনা করুন",
+  "account": "অ্যাকাউন্ট",
+  "language": "ভাষা",
+  "notifications": "নোটিফিকেশন",
+  "username": "ইউজারনেম",
+  "email": "ইমেইল",
+  "save": "পরিবর্তন সংরক্ষণ করুন",
+  "languageDescription": "আপনার পছন্দের ভাষা নির্বাচন করুন।",
+  "voteReminder": "ভোট রিমাইন্ডার",
+  "newsUpdates": "সংবাদ আপডেট",
+  "eventAnnouncements": "ইভেন্ট ঘোষণা"
+},
+"support": {
+  "title": "সাপোর্ট",
+  "description": "আমাদের স্টাফ টিম থেকে সহায়তা নিন",
+  "myTickets": "আমার টিকিট",
+  "newTicket": "নতুন টিকিট"
+}
 }

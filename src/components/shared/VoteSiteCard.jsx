@@ -42,7 +42,7 @@ export default function VoteSiteCard({ site }) {
         href={site.url}
         target="_blank"
         rel="noreferrer"
-        className={`mt-6 flex justify-center rounded-lg px-4 py-3 font-bold transition ${buttonStyles[site.color]}`}
+        className={`mt-6 flex justify-center rounded-xs px-4 py-3 font-bold transition ${buttonStyles[site.color]}`}
       >
         {t("vote.voteNow")}
       </a>

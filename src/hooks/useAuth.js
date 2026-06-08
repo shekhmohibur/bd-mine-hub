@@ -1,20 +1,25 @@
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/firebase/firebase.config";
 
-export const useAuth = () => {
-  return useQuery({
-    queryKey: ["user"],
-    queryFn: async () => {
-      // replace with api call later
+export default function useAuth() {
+  const [user, setUser] = useState(auth.currentUser);
+  const [loading, setLoading] = useState(true);
 
-      return {
-        id: 1,
-        username: "Najatul_Dev",
-        avatar:
-          "https://mc-heads.net/avatar/Najatul_Dev",
-        role: "Prime",
-      };
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (currentUser) => {
+        setUser(currentUser);
+        setLoading(false);
+      }
+    );
 
-      // return null for guest
-    },
-  });
-};
+    return unsubscribe;
+  }, []);
+
+  return {
+    user,
+    loading,
+  };
+}

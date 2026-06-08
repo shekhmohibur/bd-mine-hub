@@ -47,22 +47,22 @@ export const userLinks = [
   },
   {
     key: "profile",
-    path: "/profile",
+    path: "dashboard/profile",
     icon: User,
   },
   {
     key: "voteRewards",
-    path: "/vote-rewards",
+    path: "dashboard/vote-rewards",
     icon: Trophy,
   },
   {
     key: "support",
-    path: "/support",
+    path: "dashboard/support",
     icon: Ticket,
   },
   {
     key: "settings",
-    path: "/settings",
+    path: "dashboard/settings",
     icon: Settings,
   },
 ];

@@ -2,11 +2,11 @@ import { useEffect, useState, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, User, ChevronDown, LogOut } from "lucide-react";
-
 import { navLinks, userLinks } from "@/data/navbarData";
-import { useAuth } from "@/hooks/useAuth";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "react-i18next";
+import useAuth from "@/hooks/useAuth";
+import useLogout from "@/hooks/useLogout";
 export default function Navbar() {
   const location = useLocation();
   const { t } = useTranslation();
@@ -14,8 +14,10 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const dropdownRef = useRef(null);
+  const { user, loading } = useAuth();
+  console.log(user);
 
-  const { data: user, isLoading } = useAuth();
+  const logout = useLogout();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -99,7 +101,7 @@ export default function Navbar() {
           <div className="hidden items-center gap-5 lg:flex">
             <LanguageSwitcher />
 
-            {isLoading ? (
+            {loading ? (
               <div className="h-10 w-24 animate-pulse rounded-lg bg-zinc-800" />
             ) : !user ? (
               <>
@@ -107,14 +109,14 @@ export default function Navbar() {
                   to="/login"
                   className="rounded-lg border border-sky-500 px-5 py-2 text-sm font-medium text-white transition hover:bg-sky-500/10"
                 >
-                  {t("auth.login")}
+                  {t("authFrontend.login")}
                 </Link>
 
                 <Link
                   to="/register"
                   className="rounded-lg bg-emerald-400 px-5 py-2 text-sm font-semibold text-black transition hover:bg-emerald-300"
                 >
-                  {t("auth.signup")}
+                  {t("authFrontend.signup")}
                 </Link>
               </>
             ) : (
@@ -123,15 +125,19 @@ export default function Navbar() {
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   className="flex items-center gap-2"
                 >
-                  {user.avatar ? (
+                  {user?.avatar ? (
                     <img
-                      src={user.avatar}
-                      alt={user.username}
+                      src={user?.avatar}
+                      alt={user?.displayName}
                       className="h-10 w-10 rounded-full object-cover ring-2 ring-emerald-500/40"
                     />
                   ) : (
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-800">
-                      <User size={18} />
+                      <img
+                        src={`https://mc-heads.net/avatar/${user?.displayName}`}
+                        alt="User Avatar"
+                        className="h-10 w-10 rounded-full object-cover ring-2 ring-emerald-500/40"
+                      />
                     </div>
                   )}
 
@@ -160,11 +166,11 @@ export default function Navbar() {
                       className="absolute right-0 top-14 w-64 rounded-2xl border border-white/10 bg-[#111111] p-2 shadow-2xl"
                     >
                       <div className="border-b border-white/10 p-3">
-                        <h4 className="font-semibold">{user.username}</h4>
+                        <h4 className="font-semibold">{user?.displayName}</h4>
 
-                        {user.role && (
+                        {user?.role && (
                           <p className="text-xs text-emerald-400">
-                            {user.role}
+                            {user?.role}
                           </p>
                         )}
                       </div>
@@ -184,9 +190,12 @@ export default function Navbar() {
                         );
                       })}
 
-                      <button className="mt-1 flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-red-400 hover:bg-red-500/10">
+                      <button
+                        onClick={logout}
+                        className="mt-1 flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-red-400 hover:bg-red-500/10"
+                      >
                         <LogOut size={16} />
-                        {t("auth.logout")}
+                        {t("authFrontend.logout")}
                       </button>
                     </motion.div>
                   )}
@@ -246,24 +255,28 @@ export default function Navbar() {
                 <div className="border-b border-white/10 p-5">
                   {user ? (
                     <div className="flex items-center gap-3">
-                      {user.avatar ? (
+                      {user?.avatar ? (
                         <img
-                          src={user.avatar}
-                          alt=""
-                          className="h-14 w-14 rounded-full object-cover"
+                          src={user?.avatar}
+                          alt="user avatar"
+                          className="h-14 w-14 rounded-full object-cover ring-2 ring-emerald-500/40"
                         />
                       ) : (
                         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-zinc-800">
-                          <User />
+                          <img
+                            src={`https://mc-heads.net/avatar/${user?.displayName}`}
+                            alt="User Avatar"
+                            className="h-14 w-14 rounded-full object-cover ring-2 ring-emerald-500/40"
+                          />
                         </div>
                       )}
 
                       <div>
-                        <h4 className="font-semibold">{user.username}</h4>
+                        <h4 className="font-semibold">{user?.displayName}</h4>
 
-                        {user.role && (
+                        {user?.role && (
                           <p className="text-xs text-emerald-400">
-                            {user.role}
+                            {user?.role}
                           </p>
                         )}
                       </div>
@@ -274,14 +287,14 @@ export default function Navbar() {
                         to="/login"
                         className="rounded-xl border border-sky-500 py-3 text-center"
                       >
-                        {t("auth.login")}
+                        {t("authFrontend.login")}
                       </Link>
 
                       <Link
                         to="/register"
                         className="rounded-xl bg-emerald-400 py-3 text-center font-semibold text-black"
                       >
-                        {t("auth.signup")}
+                        {t("authFrontend.signup")}
                       </Link>
                     </div>
                   )}
@@ -339,9 +352,12 @@ export default function Navbar() {
                   )}
                 </div>
                 <div className="border-t border-white/10 p-4">
-                  <button className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-red-400 hover:bg-red-500/10">
+                  <button
+                    className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-red-400 hover:bg-red-500/10"
+                    onClick={logout}
+                  >
                     <LogOut size={18} />
-                    {t("auth.logout")}
+                    {t("authFrontend.logout")}
                   </button>
                 </div>
               </div>

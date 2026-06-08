@@ -20,7 +20,7 @@
     "join": "Join Server",
     "serverAddress": "Server Address"
   },
-  "auth": {
+  "authFrontend": {
     "login": "Login",
     "signup": "Sign Up",
     "logout": "Logout"
@@ -134,5 +134,76 @@
       "mythic": "Mythic",
       "legendary": "Legendary"
     }
-  }
+  },
+  "auth": {
+    "welcome": "Welcome Back",
+    "subtitle": "Login to continue your BD Mine Hub journey.",
+    "email": "Email Address",
+    "password": "Password",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPassword": "Forgot Password?",
+    "resetDescription": "Enter your email address and we'll send you a password reset link.",
+    "login": "Login",
+    "signup": "Create Account",
+    "google": "Continue with Google",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "minecraftUsername": "Minecraft Username",
+    "confirmPassword": "Confirm Password",
+    "createAccount": "Create Account",
+    "sendReset": "Send Reset Link"
+  },
+  "profile": {
+    "title": "Profile",
+    "player": "Player",
+    "accountInfo": "Account Information",
+    "description": "Manage your BD Mine Hub account",
+    "email": "Email",
+    "role": "Role",
+    "joined": "Joined",
+    "totalVotes": "Total Votes",
+    "voteKeys": "Vote Keys",
+    "rank": "Rank"
+  },
+  "dashboard": {
+    "home": "Go to Home",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "voteHistory": "Vote History",
+    "settings": "Settings",
+    "support": "Support",
+    "logout": "Logout",
+    "title": "Dashboard",
+    "subtitle": "Overview of your BD Mine Hub account",
+    "totalVotes": "Total Votes",
+    "voteKeys": "Vote Keys",
+    "rank": "Rank",
+    "recentActivity": "Recent Activity"
+  },
+  "voteHistory": {
+  "title": "Vote History",
+  "description": "Track your recent votes and rewards",
+  "recentVotes": "Recent Votes"
+},
+"settings": {
+  "title": "Settings",
+  "description": "Manage your account preferences",
+  "account": "Account",
+  "language": "Language",
+  "notifications": "Notifications",
+  "username": "Username",
+  "email": "Email",
+  "save": "Save Changes",
+  "languageDescription": "Choose your preferred language.",
+  "voteReminder": "Vote Reminders",
+  "newsUpdates": "News Updates",
+  "eventAnnouncements": "Event Announcements"
+},
+"support": {
+  "title": "Support",
+  "description": "Get help from our staff team",
+  "myTickets": "My Tickets",
+  "newTicket": "New Ticket"
+}
 }
