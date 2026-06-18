@@ -6,9 +6,9 @@ import VoteRewardTier from "@/components/shared/VoteRewardTier";
 import TopVoterRow from "@/components/shared/TopVoterRow";
 import { voteSites } from "@/data/voteSites";
 import { voteRewardTiers } from "@/data/voteRewardTiers";
-import { useTopVoters } from "@/hooks/useTopVoters";
 import { formatNumber } from "@/utils/formatNumber";
 import CountUp from "@/components/ui/CountUp";
+import useTopVoters from "@/hooks/useTopVoters";
 
 export default function Vote() {
   const { t, i18n } = useTranslation();

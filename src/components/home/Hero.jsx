@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Copy, Check, Search } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
+import { ServerStatusButton } from "../shared/ServerStatus";
+import usePlayerSearch from "@/hooks/usePlayerSearch";
 export default function Hero() {
   const [copied, setCopied] = useState(false);
   const { t } = useTranslation();
@@ -22,34 +24,9 @@ export default function Hero() {
       console.error(error);
     }
   };
-  const players = [
-    {
-      username: "Mohib",
-      rank: "Prime",
-      votes: 156,
-    },
-
-    {
-      username: "Najatul",
-      rank: "Player",
-      votes: 98,
-    },
-
-    {
-      username: "Alex",
-      rank: "Mythic",
-      votes: 201,
-    },
-
-    {
-      username: "Steve",
-      rank: "Legendary",
-      votes: 312,
-    },
-  ];
-
+const players = usePlayerSearch(query);
   const filteredPlayers = players.filter((player) =>
-    player.username.toLowerCase().includes(query.toLowerCase()),
+    player.PlayerName.toLowerCase().includes(query.toLowerCase()),
   );
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
@@ -166,8 +143,8 @@ export default function Hero() {
             >
               {filteredPlayers.map((player) => (
                 <button
-                  key={player.username}
-                  onClick={() => navigate(`/players/${player.username}`)}
+                  key={player.PlayerName}
+                  onClick={() => navigate(`/player/${player.PlayerName}`)}
                   className="
                 flex
                 w-full
@@ -182,22 +159,22 @@ export default function Hero() {
                 >
                   <div className="flex items-center gap-3">
                     <img
-                      src={`https://mc-heads.net/avatar/${player.username}`}
-                      alt={player.username}
+                      src={`https://mc-heads.net/avatar/${player.PlayerName}`}
+                      alt={player.PlayerName}
                       className="h-10 w-10 rounded-lg"
                     />
 
                     <div>
                       <p className="font-semibold text-white">
-                        {player.username}
+                        {player.PlayerName}
                       </p>
 
-                      <p className="text-xs text-zinc-400">{player.rank}</p>
+                      <p className="text-xs text-zinc-400">{player.MonthTotal} monthly votes</p>
                     </div>
                   </div>
 
                   <span className="text-xs font-semibold text-emerald-400">
-                    {player.votes}
+                    {player.AllTimeTotal}
                   </span>
                 </button>
               ))}
@@ -241,6 +218,7 @@ export default function Hero() {
               <Copy size={18} className="text-zinc-400" />
             )}
           </button>
+          <ServerStatusButton/>
         </motion.div>
       </div>
 

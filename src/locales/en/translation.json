@@ -18,7 +18,8 @@
     "titleHalf1": "SURVIVE.",
     "description": "Join Bangladesh's Minecraft Survival server with custom gameplay, events, rewards, and a growing community.",
     "join": "Join Server",
-    "serverAddress": "Server Address"
+    "serverAddress": "Server Address",
+    "searchPlayer": "Search Players"
   },
   "authFrontend": {
     "login": "Login",

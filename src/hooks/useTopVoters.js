@@ -1,31 +1,25 @@
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import api from "@/lib/axios";
 
-export const useTopVoters = () => {
-  return useQuery({
-    queryKey: ["top-voters"],
-    queryFn: async () => {
-      return [
-        {
-          id: 1,
-          username: "Alex Gamer",
-          votes: 42,
-        },
-        {
-          id: 2,
-          username: "Steve10",
-          votes: 38,
-        },
-        {
-          id: 3,
-          username: "MineMaster",
-          votes: 31,
-        },
-        {
-          id: 4,
-          username: "CraftyNet",
-          votes: 29,
-        },
-      ];
-    },
-  });
+const useTopVoters = () => {
+  const [voters, setVoters] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    api
+      .get("/top-voters")
+      .then((res) => {
+        setVoters(res.data);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  return {
+    voters,
+    loading,
+  };
 };
+
+export default useTopVoters;

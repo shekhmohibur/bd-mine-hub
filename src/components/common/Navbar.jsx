@@ -7,6 +7,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 import useAuth from "@/hooks/useAuth";
 import useLogout from "@/hooks/useLogout";
+import { ServerStatusMini } from "../shared/ServerStatus";
 export default function Navbar() {
   const location = useLocation();
   const { t } = useTranslation();
@@ -57,17 +58,18 @@ export default function Navbar() {
         }`}
       >
         <div className="mx-auto flex h-16 max-w-350 items-center justify-between px-4">
-          {/* Logo */}
-          <Link to="/" className="group flex items-center gap-3">
-            <div>
-              <h2 className="font-bold tracking-wide text-2xl">
-                <span className="text-emerald-400">BD</span> MINE HUB
-              </h2>
-
-              <p className="text-[10px] text-zinc-500">Minecraft Network</p>
-            </div>
-          </Link>
-
+          <div className="flex items-center gap-6">
+            {/* Logo */}
+            <Link to="/" className="group flex items-center gap-3">
+              <div>
+                <h2 className="font-bold tracking-wide text-2xl">
+                  <span className="text-emerald-400">BD</span> MINE HUB
+                </h2>
+              </div>
+            </Link>
+          {/* server live status */}
+          <ServerStatusMini/>
+          </div>
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-8 lg:flex">
             {navLinks.map((item) => (

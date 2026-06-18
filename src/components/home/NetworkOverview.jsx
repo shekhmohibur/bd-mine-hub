@@ -3,8 +3,8 @@ import { Trophy } from "lucide-react";
 import CountUp from "../ui/CountUp";
 import { useTranslation } from "react-i18next";
 import { useNetworkStats } from "@/hooks/useNetworkStats";
-import { useTopVoters } from "@/hooks/useTopVoters";
 import { formatNumber } from "@/utils/formatNumber";
+import useTopVoters from "@/hooks/useTopVoters";
 export default function NetworkOverview() {
   const { data: stats } = useNetworkStats();
   const { data: voters = [] } = useTopVoters();
